@@ -9,14 +9,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    // Checkout source code from version control
-                    checkout scm
-                }
-            }
-        }
 
         stage('Build and Push Docker Image') {
             steps {
