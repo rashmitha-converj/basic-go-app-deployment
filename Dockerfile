@@ -1,4 +1,4 @@
-FROM golang:1.17-alpine as build
+FROM 381492123764.dkr.ecr.eu-north-1.amazonaws.com/go-app-images:new as build
 
 WORKDIR /app
 
