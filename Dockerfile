@@ -4,8 +4,6 @@ WORKDIR /app
 
 COPY . . 
 
-RUN go mod init
-
 RUN go build -o /server 
 
 FROM scratch
