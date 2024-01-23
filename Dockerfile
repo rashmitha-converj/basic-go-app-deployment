@@ -2,9 +2,11 @@ FROM golang:1.17-alpine as build
 
 WORKDIR /app
 
-COPY . . 
+COPY go.mod ./
 
 RUN go mod download
+
+COPY . . 
 
 RUN go build -o ./server 
 
