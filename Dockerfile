@@ -10,7 +10,7 @@ RUN go build -o ./server
 
 RUN ls
 
-FROM scratch
+FROM alpine
 
 # Copy the compiled binary from the build stage
 COPY --from=build /app/server /app
