@@ -3,10 +3,8 @@ pipeline {
   
     environment {
         // Define your AWS ECR registry URL
-        ECR_REGISTRY = "381492123764.dkr.ecr.eu-north-1.amazonaws.com"
-        // Define your Docker image name
-        DOCKER_IMAGE_NAME = "go-app-image"
-        //configure aws
+        ECR_REGISTRY = "381492123764.dkr.ecr.eu-north-1.amazonaws.com/go-app-images"
+    
       
     }
 
@@ -31,12 +29,12 @@ pipeline {
                     sh "echo 'AWS configured!'"
                     sh "aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
 
-                    sh "docker build -t ${ECR_REGISTRY}/${DOCKER_IMAGE_NAME}:${dockerTag} ."
+                    sh "docker build -t ${ECR_REGISTRY}:${dockerTag} ."
 
                     // Push Docker image to AWS ECR
-                    sh "docker push ${ECR_REGISTRY}/${DOCKER_IMAGE_NAME}:${dockerTag}"
+                    sh "docker push ${ECR_REGISTRY}:${dockerTag}"
                   //run image
-                    sh "docker run -d -p 3001:3001 ${ECR_REGISTRY}/${DOCKER_IMAGE_NAME}:${dockerTag}"
+                    sh "docker run -d -p 3001:3001 ${ECR_REGISTRY}:${dockerTag}"
 
     
                 }
