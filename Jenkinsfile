@@ -29,7 +29,7 @@ pipeline {
                     
                     sh "aws s3 ls"
                     sh "echo 'AWS configured!'"
-                    sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
+                    sh "aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
 
                     sh "docker build -t ${ECR_REGISTRY}/${DOCKER_IMAGE_NAME}:${dockerTag} ."
 
