@@ -24,7 +24,7 @@ pipeline {
                     // Define Docker tag
           
                     def dockerTag = 'first'
-                    //sh "docker rm -f go-app"
+                    sh "docker rm -f go-app"
                     sh "aws s3 ls"
                     sh "echo 'AWS configured!'"
                     sh "aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
