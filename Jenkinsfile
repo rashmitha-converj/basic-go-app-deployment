@@ -24,7 +24,7 @@ pipeline {
                     // Define Docker tag
           
                     def dockerTag = 'first'
-                    
+                    //sh "docker rm -f go-app"
                     sh "aws s3 ls"
                     sh "echo 'AWS configured!'"
                     sh "aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}"
@@ -34,7 +34,7 @@ pipeline {
                     // Push Docker image to AWS ECR
                     sh "docker push ${ECR_REGISTRY}:${dockerTag}"
                   //run image
-                    sh "docker run -d -p 3001:3001 ${ECR_REGISTRY}:${dockerTag}"
+                    sh "docker run -d --name go-app -p 3001:3001 ${ECR_REGISTRY}:${dockerTag}"
 
     
                 }
