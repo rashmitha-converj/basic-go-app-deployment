@@ -7,7 +7,7 @@ pipeline {
         // Define your Docker image name
         DOCKER_IMAGE_NAME = "go-app-image"
         //configure aws
-        AWS_CREDENTIALS = credentials('aws-ec22')
+      
     }
 
     stages {
