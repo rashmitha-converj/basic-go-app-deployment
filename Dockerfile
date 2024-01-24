@@ -1,4 +1,4 @@
-FROM 381492123764.dkr.ecr.eu-north-1.amazonaws.com/go-app-images:new as build
+FROM 381492123764.dkr.ecr.eu-north-1.amazonaws.com/base-image:golangalpine-base as build
 
 WORKDIR /app
 
