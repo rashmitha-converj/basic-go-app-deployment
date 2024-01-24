@@ -12,7 +12,7 @@ RUN go build -o ./server
 
 RUN ls
 
-FROM 381492123764.dkr.ecr.eu-north-1.amazonaws.com/base-image:alpinebase1
+FROM 381492123764.dkr.ecr.eu-north-1.amazonaws.com/base-image:golangalpine-base
 
 # Copy the compiled binary from the build stage
 COPY --from=build /app/server /app
